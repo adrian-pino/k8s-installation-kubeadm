@@ -21,4 +21,3 @@ add_line_if_not_exists "$LINE2" "$FILE"
 add_line_if_not_exists "$LINE3" "$FILE"
 
 echo "kubectl completion and alias added to $FILE"
-
