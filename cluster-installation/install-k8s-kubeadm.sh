@@ -6,12 +6,12 @@
 
 # VARIABLES
 ################################
-# K8S_VERSION=1.30.2-1.1                    # Needed for master and worker installation
-# CONTAINERD_VERSION=1.6.31-1               # Needed for master and worker installation
-# IS_MASTER=true|false                      # Needed for master and worker installation
-# MASTER_NODE_IP=x.x.x.x                    # Needed for master installation (not used in worker installation)
-# POD_CIDR=172.12.0.0/16      				# Needed for master installation (not used in worker installation). Recommendation: update it for each new cluster
-# SERVICE_CIDR=10.96.0.0/12                 # Needed for master installation (not used in worker installation). Recommendation: update it for each new cluster
+# K8S_VERSION=1.30.2-1.1                        # Needed for master and worker installation
+# CONTAINERD_VERSION=1.7.24-0ubuntu1~22.04.2    # Needed for master and worker installation
+# IS_MASTER=true|false                          # Needed for master and worker installation
+# MASTER_NODE_IP=x.x.x.x                        # Needed for master installation (not used in worker installation)
+# POD_CIDR=172.12.0.0/16      				    # Needed for master installation (not used in worker installation). Recommendation: update it for each new cluster
+# SERVICE_CIDR=10.96.0.0/12                     # Needed for master installation (not used in worker installation). Recommendation: update it for each new cluster
 ################################
 
 # Check if mandatory variables are missing
@@ -54,12 +54,8 @@ EOF
 sudo sysctl --system
 
 # Install containerd
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt update -y
-sudo apt install containerd.io=$CONTAINERD_VERSION -y
+sudo apt install containerd=$CONTAINERD_VERSION -y
 
 # Set the cgroup driver for runc to systemd
 # Create the containerd configuration file (containerd by default takes the config looking at /etc/containerd/config.toml)
