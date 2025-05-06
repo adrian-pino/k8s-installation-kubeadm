@@ -2,12 +2,12 @@
 #####################################################################################
 # Script to install Kubernetes via kubeadm using containerd as the container runtime.
 #####################################################################################
-# Tested with Ubuntu 20.04 & Ubuntu 22.04
+# Tested with Ubuntu 24.02.02 (Ubuntu Noble)
 
 # VARIABLES
 ################################
-# K8S_VERSION=1.30.2-1.1                        # Needed for master and worker installation
-# CONTAINERD_VERSION=1.7.24-0ubuntu1~22.04.2    # Needed for master and worker installation
+# K8S_VERSION=1.33.0-1.1                       # Needed for master and worker installation
+# CONTAINERD_VERSION=1.7.24-0ubuntu1~24.04.2    # Needed for master and worker installation
 # IS_MASTER=true|false                          # Needed for master and worker installation
 # MASTER_NODE_IP=x.x.x.x                        # Needed for master installation (not used in worker installation)
 # POD_CIDR=172.12.0.0/16      				    # Needed for master installation (not used in worker installation). Recommendation: update it for each new cluster
