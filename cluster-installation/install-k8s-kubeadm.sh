@@ -92,7 +92,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 # install kubelet, kubeadm and kubectl, and pin their version
 sudo apt-get update
 sudo apt-get install -y kubelet=$K8S_VERSION kubeadm=$K8S_VERSION kubectl=$K8S_VERSION
-sudo apt-mark hold kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl containerd
 
 if $IS_MASTER; then
     #--pod-network-cidr=$POD_CIDR
